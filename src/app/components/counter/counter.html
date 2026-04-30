@@ -1,1 +1,10 @@
-<p>counter works!</p>
+<h1 class="text-xl font-bold">Contador con Signals</h1>
+
+<p>Valor: {{count()}}</p> <!-- Usar parentesis para obtener valor de señales -->
+<p>Doble: {{doubleCount()}}</p>
+
+<div class="flex m-2">
+    <button (click)="increment()" class="bg-green-600 text-white rounded p-1 mx-2">+1</button>
+
+    <button (click)="decrement()" class="bg-red-600 text-white rounded p-1 mx-2">-1</button>
+</div>
