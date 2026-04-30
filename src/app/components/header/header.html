@@ -1,7 +1,30 @@
-<div class="p-3 my-2 border-b-olive-400 border-b-2 flex">
-    <fa-icon [icon]="faAngular" class="text-3xl p-2 text-olive-500"/>
-    <div>
-    <h1 class=" text-xl font-bold">Angular Multiplataforma</h1>
-    <p class="italic text-gray-500">Base de la aplicación para web, movil y desktop</p>
+<div class="p-3 my-2 border-b-olive-400 border-b-2 flex justify-between">
+    <div class="flex">
+        <fa-icon [icon]="faAngular" class="text-3xl p-2 text-olive-500"/>
+        <div>
+            <h1 class=" text-xl font-bold">Angular Multiplataforma</h1>
+            <p class="italic text-gray-500">Base de la aplicación para web, movil y desktop</p>
+        </div>
     </div>
+    <nav class="flex gap-2 px-4">
+        <a  routerLink="/" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact:true}"
+            class="nav-button"
+        >
+            Inicio
+        </a>
+        <a  routerLink="/tasks"
+            routerLinkActive="active"
+            class="nav-button"
+        >
+            Tareas
+        </a>
+        <a  routerLink="/about" 
+            routerLinkActive="active"
+            class="nav-button"
+        >
+            Acerca de
+        </a>
+    </nav>
 </div>

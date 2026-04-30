@@ -1,14 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { Counter } from "./components/counter/counter";
-import { TaskForm } from "./components/task-form/task-form";
-import { TaskList } from "./components/task-list/task-list";
+import { Component } from '@angular/core';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { Header } from "./components/header/header";
+import { RouterOutlet } from "@angular/router";
 
 
 @Component({
   selector: 'app-root',
-  imports: [TaskForm, TaskList, FontAwesomeModule, Header],
+  imports: [ FontAwesomeModule, Header, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
