@@ -1,6 +1,14 @@
 <section class="m-10 flex flex-col items-center">
     <h1 class="text-3xl font-bold text-olive-500">Gestor de tareas Multiplataforma</h1>
     <p class="my-2 italic">Esta aplicación está diseñada para registrar tareas en memoria. Posee las siguientes funcionalidades:</p>
+    <div class="flex items-center gap-2">
+        <p class="text-sm text-gray-400">Sistema operativo: {{platform()}}</p>
+        <button (click)="loadPlatform()"
+                class="rounded-xl border border-olive-500 px-1 hover:cursor-pointer hover:scale-110 transition-all ease-in-out">
+            Obtener plataforma
+        </button>
+    </div>
+    
     
     <div class="border rounded border-olive-500 my-5 p-5">
         <div class="flex items-center p-3 text-xl">

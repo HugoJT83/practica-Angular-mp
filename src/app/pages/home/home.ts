@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCalculator, faCircleCheck, faList, faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,4 +13,12 @@ export class Home {
   faList = faList;
   faCircleCheck = faCircleCheck;
   faCalculator= faCalculator;
+
+
+  platform = signal('Desconocido');
+
+  async loadPlatform() {
+    const result = await window.electronAPI.getPlatform();
+    this.platform.set(result);
+  }
 }
