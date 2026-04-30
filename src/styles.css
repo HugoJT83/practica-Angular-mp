@@ -11,4 +11,8 @@
     .button{
         @apply bg-olive-500 text-white p-2 rounded border-b-olive-600 border-b-4 hover:cursor-pointer;
     }
+
+    .stats{
+        @apply italic text-gray-400 text-lg;
+    }
 }

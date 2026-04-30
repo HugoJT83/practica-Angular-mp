@@ -2,7 +2,7 @@
     <span [class]="task().completed ? 'text-gray-500 line-through' : ''">
         {{task().title}}
     </span>
-    <button (click)="toggleRequested.emit(task().id)"
+    <button (click)="toggleTask()"
             class="button"   
     >
         {{task().completed ? 'Desmarcar' : 'Completar'}}

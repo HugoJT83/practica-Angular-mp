@@ -1,5 +1,6 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TaskStoreServiceTs } from '../../services/task-store.service.ts';
 
 @Component({
   selector: 'app-task-form',
@@ -8,15 +9,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './task-form.css',
 })
 export class TaskForm {
+  private taskStore = inject(TaskStoreServiceTs)
+  
   title = '';
-  taskCreated = output<string>();
 
   addTask(): void{
-    const cleanTitle = this.title.trim();
-
-    if(!cleanTitle) return; //comprueba que haya algo escrito
-
-    this.taskCreated.emit(cleanTitle);  
+    this.taskStore.addTask(this.title);  
     this.title = '';
   }
 }

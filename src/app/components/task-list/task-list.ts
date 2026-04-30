@@ -1,8 +1,8 @@
-import { Component, input, output} from '@angular/core';
-import { Task } from '../../Models/task.model';
+import { Component, inject} from '@angular/core';
 import { TaskItem } from "../task-item/task-item";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faListCheck } from '@fortawesome/free-solid-svg-icons'
+import { TaskStoreServiceTs } from '../../services/task-store.service.ts';
 @Component({
   selector: 'app-task-list',
   imports: [TaskItem, FontAwesomeModule],
@@ -11,8 +11,9 @@ import { faListCheck } from '@fortawesome/free-solid-svg-icons'
 })
 
 export class TaskList {
-  faListCheck = faListCheck;
-  tasks = input.required<Task[]>();
+  
+  taskStore = inject(TaskStoreServiceTs);
 
-  taskToggled = output<number>();
+  faListCheck = faListCheck;
+  
 }

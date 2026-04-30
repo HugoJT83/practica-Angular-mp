@@ -2,11 +2,18 @@
     <div class="flex items-center">
         <h2 class="title">Tareas</h2>
         <fa-icon [icon]="faListCheck" class="text-olive-500 text-xl mx-2"></fa-icon>
+
+        <div class="border-l-2 border-olive-500 flex gap-3 px-3">
+            <span class="stats">Totales: {{ taskStore.totalTasks() }}</span>
+            <span class="stats">Completadas: {{ taskStore.completedTasks() }}</span>
+            <span class="stats">Pendientes: {{ taskStore.pendingTasks() }}</span>
+        </div>
     </div>
     <ul class="border border-olive-400 rounded p-2">
-        @for (task of tasks(); track task.id) {
+        @for (task of taskStore.tasks(); track task.id) {
+            
             <li class="m-1 bg-olive-300 rounded p-2 mb-2">
-                <app-task-item [task]="task" (toggleRequested)="taskToggled.emit($event)"></app-task-item> 
+                <app-task-item [task]="task"></app-task-item> 
                 <!-- 
                     $event es una palabra reservada para obtener lo recibido del evento indicado antes (toggleRequested)  
                     1. Se recoge el evento toggleRequested

@@ -1,5 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Task } from '../../Models/task.model';
+import { TaskStoreServiceTs } from '../../services/task-store.service.ts';
 
 @Component({
   selector: 'app-task-item',
@@ -8,7 +9,11 @@ import { Task } from '../../Models/task.model';
   styleUrl: './task-item.css',
 })
 export class TaskItem {
+   taskStore = inject(TaskStoreServiceTs);
+
   task = input.required<Task>(); //señal para recibir de forma obligatoria del componente padre
 
-  toggleRequested = output<number>();
+  toggleTask():void{
+    this.taskStore.toggleTask(this.task().id);
+  }
 }
