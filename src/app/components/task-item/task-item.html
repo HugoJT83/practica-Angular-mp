@@ -1,0 +1,10 @@
+<div class="flex items-center justify-between">
+    <span [class]="task().completed ? 'text-gray-500 line-through' : ''">
+        {{task().title}}
+    </span>
+    <button (click)="toggleRequested.emit(task().id)"
+            class="button"   
+    >
+        {{task().completed ? 'Desmarcar' : 'Completar'}}
+    </button>
+</div>

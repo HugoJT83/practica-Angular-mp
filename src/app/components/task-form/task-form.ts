@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-form',
@@ -9,16 +8,15 @@ import { TaskService } from '../../services/task.service';
   styleUrl: './task-form.css',
 })
 export class TaskForm {
-  private taskService = inject(TaskService);
-
   title = '';
+  taskCreated = output<string>();
 
   addTask(): void{
     const cleanTitle = this.title.trim();
 
     if(!cleanTitle) return; //comprueba que haya algo escrito
 
-    this.taskService.addTask(cleanTitle);
+    this.taskCreated.emit(cleanTitle);  
     this.title = '';
   }
 }

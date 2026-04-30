@@ -1,1 +1,8 @@
-<app-counter></app-counter>
+<app-header></app-header>
+<main>
+    <div class="flex w-full">
+        <app-task-form (taskCreated)="addTask($event)" class="flex-1"></app-task-form>
+        <app-task-list [tasks]="tasks()" (taskToggled)="toggleTask($event)" class="flex-1"></app-task-list>
+        <!-- task-item > task-list > app (comunicando componentes) -->
+    </div>
+</main>
